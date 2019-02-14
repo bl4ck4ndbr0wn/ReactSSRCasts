@@ -472,10 +472,6 @@ var UsersList = function (_Component) {
   return UsersList;
 }(_react.Component);
 
-// UsersList.proptypes = {
-//   fetchUsers: Prop
-// }
-
 var mapStateToProps = function mapStateToProps(state) {
   return {
     users: state.users

@@ -21,10 +21,6 @@ class UsersList extends Component {
   }
 }
 
-// UsersList.proptypes = {
-//   fetchUsers: Prop
-// }
-
 const mapStateToProps = state => {
   return {
     users: state.users
