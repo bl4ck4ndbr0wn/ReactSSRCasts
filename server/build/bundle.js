@@ -22758,7 +22758,7 @@ var Home = function Home() {
   return _react2.default.createElement(
     "div",
     null,
-    " I'm in the home component."
+    " I'm in My home component."
   );
 };
 
