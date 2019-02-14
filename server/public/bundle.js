@@ -38814,18 +38814,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Home = function Home() {
   return _react2.default.createElement(
     "div",
-    null,
+    { className: "center-align", style: { marginTop: "30%" } },
     _react2.default.createElement(
-      "div",
+      "h3",
       null,
-      " I'm in My home component."
+      " Welcome"
     ),
     _react2.default.createElement(
-      "button",
-      { onClick: function onClick() {
-          return console.log("Hi there");
-        } },
-      "Press Me"
+      "p",
+      null,
+      "Check out this awesome features"
     )
   );
 };
@@ -38881,8 +38879,31 @@ var UsersList = function (_Component) {
       return this.props.users.map(function (user) {
         return _react2.default.createElement(
           "li",
-          { key: user.id },
-          user.name
+          { key: user.id, "class": "collection-item avatar" },
+          _react2.default.createElement("img", {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiXMHZCFqG5EGaXyB5vKzaLZc0L9sduC2HsNmcAJo4L9nZd-_O",
+            alt: "",
+            "class": "circle"
+          }),
+          _react2.default.createElement(
+            "span",
+            { "class": "title" },
+            user.name
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "User"
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "#!", "class": "secondary-content" },
+            _react2.default.createElement(
+              "i",
+              { "class": "material-icons" },
+              user.id
+            )
+          )
         );
       });
     }
@@ -38892,11 +38913,14 @@ var UsersList = function (_Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "Here is a big list of users",
-        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Here is a big list of users"
+        ),
         _react2.default.createElement(
           "ul",
-          null,
+          { "class": "collection" },
           this.renderusers()
         )
       );
@@ -39923,36 +39947,63 @@ var Header = function Header(_ref) {
   console.log("My Auth Status is", auth);
 
   var authButton = auth ? _react2.default.createElement(
-    "a",
-    { href: "/api/logout" },
-    "Logout"
-  ) : _react2.default.createElement(
-    "a",
-    { href: "/api/auth/google" },
-    "Login"
-  );
-  return _react2.default.createElement(
-    "div",
+    "li",
     null,
     _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: "/" },
-      " React SSR"
+      "a",
+      { href: "/api/logout" },
+      "Logout"
     ),
+    " "
+  ) : _react2.default.createElement(
+    "li",
+    null,
+    " ",
+    _react2.default.createElement(
+      "a",
+      { href: "/api/auth/google" },
+      "Login"
+    )
+  );
+  return _react2.default.createElement(
+    "nav",
+    null,
     _react2.default.createElement(
       "div",
-      null,
+      { "class": "nav-wrapper" },
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: "/users" },
-        " Users"
+        { to: "/", "class": "brand-logo" },
+        " ",
+        "React SSR"
       ),
       _react2.default.createElement(
-        _reactRouterDom.Link,
-        { to: "/admins" },
-        " Admins"
-      ),
-      authButton
+        "ul",
+        { id: "nav-mobile", "class": "right hide-on-med-and-down" },
+        _react2.default.createElement(
+          "li",
+          null,
+          " ",
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: "/users" },
+            " Users"
+          ),
+          " "
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          " ",
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: "/admins" },
+            " Admins"
+          ),
+          " "
+        ),
+        authButton
+      )
     )
   );
 };
