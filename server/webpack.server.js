@@ -1,6 +1,8 @@
 const path = require("path");
+const merge = require("webpack-merge");
+const baseConfig = require("./webpack.base.js");
 
-module.exports = {
+const config = {
   // Inform weboack that we are building bundle for nodejs not browser
   target: "node",
   // entry Root file of server application
@@ -9,22 +11,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build")
-  },
-  // tell to run babel on every file it goes through
-  module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
-        options: {
-          presets: [
-            "react",
-            "stage-0",
-            ["env", { targets: { browsers: ["last 2 versions"] } }]
-          ]
-        }
-      }
-    ]
   }
 };
+
+module.exports = merge(baseConfig, config);
